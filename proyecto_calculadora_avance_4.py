@@ -72,7 +72,7 @@ def mostrar_menu_monedas():
     print("9.  Peso Mexicano ~ Peso Colombiano")
     print("10. Peso Mexicano ~ Sol Peruano\n")
 
-print(mostrar_menu_monedas())
+mostrar_menu_monedas()
 
 def main():
     opcion = int(input("Seleccione una opción: "))
@@ -121,4 +121,5 @@ def main():
 
 if __name__ == "__main__":
     main()
+
 
