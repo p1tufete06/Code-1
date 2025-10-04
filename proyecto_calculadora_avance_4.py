@@ -59,67 +59,57 @@ def sol_peruano_a_peso_mexicano(soles):
     return soles * 4.76
 
 def mostrar_menu_monedas():
-    print("CALCULADORA DE CONVERSIONES\nDE MONEDA\n")
-    print("DESDE PESO MEXICANO:\n") 
-    print("1.  Peso Mexicano ~ Dólar Canadiense")
-    print("2.  Peso Mexicano ~ Dólar Americano")
-    print("3.  Peso Mexicano ~ Euro")
-    print("4.  Peso Mexicano ~ Yen Japonés")
-    print("5.  Peso Mexicano ~ Libra Esterlina")
-    print("6.  Peso Mexicano ~ Franco Suizo")
-    print("7.  Peso Mexicano ~ Peso Argentino")
-    print("8.  Peso Mexicano ~ Real Brasileño")
-    print("9.  Peso Mexicano ~ Peso Colombiano")
-    print("10. Peso Mexicano ~ Sol Peruano\n")
-
-mostrar_menu_monedas()
+    opciones = [
+        "Peso Mexicano → Dólar Canadiense",
+        "Peso Mexicano → Dólar Americano",
+        "Peso Mexicano → Euro",
+        "Peso Mexicano → Yen Japonés",
+        "Peso Mexicano → Libra Esterlina",
+        "Peso Mexicano → Franco Suizo",
+        "Peso Mexicano → Peso Argentino",
+        "Peso Mexicano → Real Brasileño",
+        "Peso Mexicano → Peso Colombiano",
+        "Peso Mexicano → Sol Peruano"
+    ]
+    
+    print("\nCALCULADORA DE CONVERSIONES DE MONEDA")
+    print("DESDE PESO MEXICANO:\n")
+    
+    for i, opcion in enumerate(opciones, start=1):
+        print(f"{i}.  {opcion}")
+    
+    print("0.  Salir")
 
 def main():
-    opcion = int(input("Seleccione una opción: "))
-    if opcion == 1:
-        pesos = float(input("Ingrese cantidad en Pesos Mexicanos: "))
-        resultado = peso_mexicano_a_dolar_canadiense(pesos)
-        print(f"{pesos} MXN = {resultado:.2f} CAD")
-    elif opcion == 2:
-        pesos = float(input("Ingrese cantidad en Pesos Mexicanos: "))
-        resultado = peso_mexicano_a_dolar_americano(pesos)
-        print(f"{pesos} MXN = {resultado:.2f} USD")
-    elif opcion == 3:
-        pesos = float(input("Ingrese cantidad en Pesos Mexicanos: "))
-        resultado = peso_mexicano_a_euro(pesos)
-        print(f"{pesos} MXN = {resultado:.2f} EUR")
-    elif opcion == 4:
-        pesos = float(input("Ingrese cantidad en Pesos Mexicanos: "))
-        resultado = peso_mexicano_a_yen(pesos)
-        print(f"{pesos} MXN = {resultado:.2f} JPY")
-    elif opcion == 5:
-        pesos = float(input("Ingrese cantidad en Pesos Mexicanos: "))
-        resultado = peso_mexicano_a_libra_esterlina(pesos)
-        print(f"{pesos} MXN = {resultado:.2f} GBP")
-    elif opcion == 6:
-        pesos = float(input("Ingrese cantidad en Pesos Mexicanos: "))
-        resultado = peso_mexicano_a_franco_suizo(pesos)
-        print(f"{pesos} MXN = {resultado:.2f} CHF")
-    elif opcion == 7:
-        pesos = float(input("Ingrese cantidad en Pesos Mexicanos: "))
-        resultado = peso_mexicano_a_peso_argentino(pesos)
-        print(f"{pesos} MXN = {resultado:.2f} ARS")
-    elif opcion == 8:
-        pesos = float(input("Ingrese cantidad en Pesos Mexicanos: "))
-        resultado = peso_mexicano_a_real_brasileno(pesos)
-        print(f"{pesos} MXN = {resultado:.2f} BRL")
-    elif opcion == 9:
-        pesos = float(input("Ingrese cantidad en Pesos Mexicanos: "))
-        resultado = peso_mexicano_a_peso_colombiano(pesos)
-        print(f"{pesos} MXN = {resultado:.2f} COP")
-    elif opcion == 10:
-        pesos = float(input("Ingrese cantidad en Pesos Mexicanos: "))
-        resultado = peso_mexicano_a_sol_peruano(pesos)
-        print(f"{pesos} MXN = {resultado:.2f} PEN")
-    else:
-        print("Opción no válida")
+    conversiones = [
+        (peso_mexicano_a_dolar_canadiense, "CAD"),
+        (peso_mexicano_a_dolar_americano, "USD"),
+        (peso_mexicano_a_euro, "EUR"),
+        (peso_mexicano_a_yen, "JPY"),
+        (peso_mexicano_a_libra_esterlina, "GBP"),
+        (peso_mexicano_a_franco_suizo, "CHF"),
+        (peso_mexicano_a_peso_argentino, "ARS"),
+        (peso_mexicano_a_real_brasileno, "BRL"),
+        (peso_mexicano_a_peso_colombiano, "COP"),
+        (peso_mexicano_a_sol_peruano, "PEN")
+    ]
+    
+    while True:
+        mostrar_menu_monedas()
+        opcion = int(input("Seleccione una opción: "))
+        
+        if opcion == 0:
+            print("\n¡Gracias por usar la calculadora!")
+            break
+        elif 1 <= opcion <= len(conversiones):
+            pesos = float(input("Ingrese cantidad en Pesos Mexicanos: "))
+            funcion, moneda = conversiones[opcion - 1]
+            resultado = funcion(pesos)
+            print(f"\n{pesos} MXN = {resultado:.2f} {moneda}")
+        else:
+            print("\nOpción no válida")
+        
+        input("\nPresione Enter para continuar...")
 
 if __name__ == "__main__":
     main()
-
-
