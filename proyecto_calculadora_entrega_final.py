@@ -28,36 +28,6 @@ def peso_mexicano_a_peso_colombiano(pesos):
 def peso_mexicano_a_sol_peruano(pesos):
     return pesos * 0.21
 
-def dolar_americano_a_peso_mexicano(dolares):
-    return dolares * 17.85
-
-def dolar_canadiense_a_peso_mexicano(dolares_can):
-    return dolares_can * 13.68
-
-def euro_a_peso_mexicano(euros):
-    return euros * 19.45
-
-def yen_a_peso_mexicano(yenes):
-    return yenes * 0.118
-
-def libra_esterlina_a_peso_mexicano(libras):
-    return libras * 22.73
-
-def franco_suizo_a_peso_mexicano(francos):
-    return francos * 20.41
-
-def peso_argentino_a_peso_mexicano(pesos_arg):
-    return pesos_arg * 0.0176
-
-def real_brasileno_a_peso_mexicano(reales):
-    return reales * 3.57
-
-def peso_colombiano_a_peso_mexicano(pesos_col):
-    return pesos_col * 0.00407
-
-def sol_peruano_a_peso_mexicano(soles):
-    return soles * 4.76
-
 def mostrar_menu_monedas():
     opciones = [
         "Peso Mexicano → Dólar Canadiense",
@@ -99,7 +69,7 @@ def main():
         opcion = int(input("Seleccione una opción: "))
         
         if opcion == 0:
-            print("\n¡Gracias por usar la calculadora!")
+            print("UNTIL WE MEET AGAIN!")
             break
         elif 1 <= opcion <= len(conversiones):
             pesos = float(input("Ingrese cantidad en Pesos Mexicanos: "))
